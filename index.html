@@ -9,8 +9,8 @@
 
 body{
 margin:0;
-font-family: Arial, Helvetica, sans-serif;
-background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 height:100vh;
 display:flex;
 align-items:center;
@@ -24,17 +24,24 @@ overflow:hidden;
 background:rgba(0,0,0,0.25);
 padding:40px;
 border-radius:20px;
-backdrop-filter: blur(10px);
+backdrop-filter:blur(10px);
 max-width:500px;
 z-index:2;
 }
 
 h1{
 font-size:28px;
+margin-bottom:20px;
 }
 
 p{
 font-size:18px;
+opacity:0;
+transition:opacity 1s;
+}
+
+.show{
+opacity:1;
 }
 
 .buttons{
@@ -62,11 +69,16 @@ color:white;
 position:absolute;
 }
 
+#playMusic{
+margin-top:20px;
+background:#ffffff;
+color:#ff4d6d;
+font-weight:bold;
+}
+
 .hidden{
 display:none;
 }
-
-/* animasi hati */
 
 @keyframes fall{
 to{
@@ -74,8 +86,6 @@ transform:translateY(100vh);
 opacity:0;
 }
 }
-
-/* sparkle */
 
 .sparkle{
 position:fixed;
@@ -85,7 +95,7 @@ animation:sparkle 3s linear;
 }
 
 @keyframes sparkle{
-0%{opacity:1; transform:translateY(0);}
+0%{opacity:1;}
 100%{opacity:0; transform:translateY(100vh);}
 }
 
@@ -98,16 +108,16 @@ animation:sparkle 3s linear;
 
 <h1>Hai Vina Arisa Dewi 😊</h1>
 
-<p>Kalau kamu dengar lagu ini sambil baca halaman ini…</p>
-<p>mungkin kamu akan tahu apa yang sebenarnya ingin aku katakan.</p>
+<p class="message">Kalau kamu dengar lagu ini sambil baca halaman ini…</p>
+<p class="message">mungkin kamu akan tahu apa yang sebenarnya ingin aku katakan.</p>
+<p class="message">Aku sebenarnya mau ngomong...</p>
+<p class="message">Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
+<p class="message">Entah kenapa setiap chat dari kamu selalu bikin aku senyum.</p>
+<p class="message">Jadi aku mau jujur satu hal...</p>
 
-<p>Aku sebenarnya mau ngomong...</p>
+<h2 class="message">Kamu jadi orang spesialku ya ❤️</h2>
 
-<p>Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
-
-<p>Jadi aku mau ngomong sesuatu...</p>
-
-<h2>Kamu jadi orang spesialku ya ❤️</h2>
+<button id="playMusic" onclick="playMusic()">🎵 Putar Lagu</button>
 
 <div class="buttons">
 
@@ -121,31 +131,67 @@ animation:sparkle 3s linear;
 
 </div>
 
-<!-- Lagu -->
-
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/FKijnRja8is?autoplay=1&loop=1"
-frameborder="0"
-allow="autoplay">
-</iframe>
+<audio id="music">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4e2e3f4b61.mp3" type="audio/mpeg">
+</audio>
 
 <script>
+
+/* pesan muncul satu satu */
+
+const messages=document.querySelectorAll(".message");
+
+let i=0;
+
+function showNext(){
+
+if(i<messages.length){
+
+messages[i].classList.add("show");
+
+i++;
+
+setTimeout(showNext,2000);
+
+}
+
+}
+
+showNext();
 
 /* tombol kabur */
 
 function moveButton(){
+
 const btn=document.getElementById("no");
+
 const x=Math.random()*300;
+
 const y=Math.random()*80;
+
 btn.style.left=x+"px";
+
 btn.style.top=y+"px";
+
 }
+
+/* klik mau */
 
 function yesClicked(){
+
 document.getElementById("result").classList.remove("hidden");
+
 }
 
-/* animasi hati */
+/* musik */
+
+function playMusic(){
+
+document.getElementById("music").play();
+
+}
+
+/* hati jatuh */
 
 setInterval(function(){
 
@@ -173,7 +219,7 @@ heart.remove();
 
 },600);
 
-/* sparkle effect */
+/* sparkle */
 
 setInterval(function(){
 
