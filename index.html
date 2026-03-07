@@ -24,40 +24,15 @@ overflow:hidden;
 background:rgba(0,0,0,0.25);
 padding:40px;
 border-radius:20px;
-backdrop-filter:blur(10px);
 max-width:500px;
 z-index:2;
 position:relative;
 }
 
-h1{
-font-size:28px;
-}
-
-p{
-font-size:18px;
-}
-
-.meter{
-width:100%;
-height:25px;
-background:#ffffff44;
-border-radius:20px;
-overflow:hidden;
-margin-top:15px;
-}
-
-.meter-fill{
-height:100%;
-width:0%;
-background:#ff4d6d;
-transition:width 0.3s;
-}
-
 .buttons{
 margin-top:30px;
 position:relative;
-height:120px;
+height:100px;
 }
 
 button{
@@ -83,6 +58,13 @@ position:absolute;
 display:none;
 }
 
+#result{
+margin-top:20px;
+font-size:20px;
+}
+
+/* animasi hati */
+
 @keyframes fall{
 to{
 transform:translateY(100vh);
@@ -91,6 +73,10 @@ opacity:0;
 }
 
 .heart{
+position:fixed;
+top:-20px;
+font-size:24px;
+animation:fall 4s linear;
 pointer-events:none;
 }
 
@@ -103,22 +89,12 @@ pointer-events:none;
 
 <h1>Hai Vina Arisa Dewi 😊</h1>
 
-<p>Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
-<p>Entah kenapa setiap chat dari kamu selalu bikin aku senyum.</p>
-
-<h2>Kamu jadi orang spesialku ya ❤️</h2>
-
-<p>Love Meter</p>
-
-<div class="meter">
-<div id="loveFill" class="meter-fill"></div
-<p>Love Meter</p>
-
-<div class="meter">
-<div id="loveFill" class="meter-fill"></div>
-</div>
-
-<p id="loveText">0%</p>
+<p>Since the day we met, I’ve always enjoyed talking with you.</p>
+<p>Somehow, every message from you always makes my day a little better.</p>
+<p>Maybe right now I can’t give you the whole world.</p>
+<p>But I want to keep trying until one day I can truly make you happy with everything you want and need.</p>
+<p>I also want you to always feel safe whenever you’re with me.</p>
+<p>So… please stay by my side. ❤️</p>
 
 <div class="buttons">
 
@@ -128,10 +104,59 @@ pointer-events:none;
 
 </div>
 
-<p id="result" class="hidden">Yay! Love Meter kita sekarang 1000% 😭❤️</p>
+<p id="result" class="hidden">Yay! I’m so happy 😭❤️</p>
 
 </div>
 
 <script>
 
-/* tombol kabur
+/* tombol tidak kabur */
+
+function moveButton(){
+
+const btn=document.getElementById("no");
+
+const x=Math.random()*300;
+
+const y=Math.random()*80;
+
+btn.style.left=x+"px";
+
+btn.style.top=y+"px";
+
+}
+
+/* tombol mau */
+
+function yesClicked(){
+
+document.getElementById("result").classList.remove("hidden");
+
+}
+
+/* animasi hati jatuh */
+
+setInterval(function(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(function(){
+
+heart.remove();
+
+},4000);
+
+},500);
+
+</script>
+
+</body>
+</html>
