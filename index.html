@@ -31,13 +31,28 @@ z-index:2;
 
 h1{
 font-size:28px;
-margin-bottom:20px;
 }
 
-.message{
+p{
 font-size:18px;
-display:none;
-margin:10px 0;
+}
+
+/* LOVE METER */
+
+.meter{
+width:100%;
+height:25px;
+background:#ffffff44;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.meter-fill{
+height:100%;
+width:0%;
+background:#ff4d6d;
+transition:width 0.3s;
 }
 
 .buttons{
@@ -65,13 +80,6 @@ color:white;
 position:absolute;
 }
 
-#musicBtn{
-margin-top:15px;
-background:white;
-color:#ff4d6d;
-font-weight:bold;
-}
-
 .hidden{
 display:none;
 }
@@ -83,17 +91,6 @@ opacity:0;
 }
 }
 
-.sparkle{
-position:fixed;
-font-size:14px;
-animation:sparkle 3s linear;
-}
-
-@keyframes sparkle{
-0%{opacity:1;}
-100%{opacity:0; transform:translateY(100vh);}
-}
-
 </style>
 </head>
 
@@ -103,31 +100,18 @@ animation:sparkle 3s linear;
 
 <h1>Hai Vina Arisa Dewi 😊</h1>
 
-<p class="message">Kalau kamu dengar lagu ini sambil baca halaman ini…</p>
-<p class="message">mungkin kamu akan tahu apa yang sebenarnya ingin aku katakan.</p>
-<p class="message">Aku sebenarnya mau ngomong...</p>
-<p class="message">Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
-<p class="message">Entah kenapa setiap chat dari kamu selalu bikin aku senyum.</p>
-<p class="message">Jadi aku mau jujur satu hal...</p>
-<p class="message">Kamu jadi orang spesialku ya ❤️</p>
+<p>Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
+<p>Entah kenapa setiap chat dari kamu selalu bikin aku senyum.</p>
 
-<button id="musicBtn" onclick="playMusic()">🎵 Putar Lagu</button>
+<h2>Kamu jadi orang spesialku ya ❤️</h2>
 
-<div class="buttons">
-<button id="yes<div class="card">
+<p>Love Meter</p>
 
-<h1>Hai Vina Arisa Dewi 😊</h1>
+<div class="meter">
+<div id="loveFill" class="meter-fill"></div>
+</div>
 
-<p class="message">Kalau kamu dengar lagu ini sambil baca halaman ini…</p>
-<p class="message">mungkin kamu akan tahu apa yang sebenarnya ingin aku katakan.</p>
-<p class="message">Aku sebenarnya mau ngomong...</p>
-<p class="message">Sejak kita kenal, aku selalu senang kalau ngobrol sama kamu.</p>
-<p class="message">Entah kenapa setiap chat dari kamu selalu bikin aku senyum.</p>
-<p class="message">Jadi aku mau jujur satu hal...</p>
-
-<h2 class="message">Kamu jadi orang spesialku ya ❤️</h2>
-
-<button id="playMusic" onclick="playMusic()">🎵 Putar Lagu</button>
+<p id="loveText">0%</p>
 
 <div class="buttons">
 
@@ -137,123 +121,10 @@ animation:sparkle 3s linear;
 
 </div>
 
-<p id="result" class="hidden">Yay! Aku senang banget 😭❤️</p>
+<p id="result" class="hidden">Yay! Love Meter kita sekarang 1000% 😭❤️</p>
 
 </div>
 
-<audio id="music">
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4e2e3f4b61.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 
-/* pesan muncul satu satu */
-
-const messages=document.querySelectorAll(".message");
-
-let i=0;
-
-function showNext(){
-
-if(i<messages.length){
-
-messages[i].classList.add("show");
-
-i++;
-
-setTimeout(showNext,2000);
-
-}
-
-}
-
-showNext();
-
-/* tombol kabur */
-
-function moveButton(){
-
-const btn=document.getElementById("no");
-
-const x=Math.random()*300;
-
-const y=Math.random()*80;
-
-btn.style.left=x+"px";
-
-btn.style.top=y+"px";
-
-}
-
-/* klik mau */
-
-function yesClicked(){
-
-document.getElementById("result").classList.remove("hidden");
-
-}
-
-/* musik */
-
-function playMusic(){
-
-document.getElementById("music").play();
-
-}
-
-/* hati jatuh */
-
-setInterval(function(){
-
-const heart=document.createElement("div");
-
-heart.innerHTML="❤️";
-
-heart.style.position="fixed";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.top="-20px";
-
-heart.style.fontSize="24px";
-
-heart.style.animation="fall 4s linear";
-
-document.body.appendChild(heart);
-
-setTimeout(function(){
-
-heart.remove();
-
-},4000);
-
-},600);
-
-/* sparkle */
-
-setInterval(function(){
-
-const star=document.createElement("div");
-
-star.className="sparkle";
-
-star.innerHTML="✨";
-
-star.style.left=Math.random()*100+"vw";
-
-star.style.top="-10px";
-
-document.body.appendChild(star);
-
-setTimeout(function(){
-
-star.remove();
-
-},3000);
-
-},400);
-
-</script>
-
-</body>
-</html>
+/* tombol kabur
