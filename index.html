@@ -89,12 +89,16 @@ pointer-events:none;
 
 <h1>Hai Vina Arisa Dewi 😊</h1>
 
-<p>Since the day we met, I’ve always enjoyed talking with you.</p>
-<p>Somehow, every message from you always makes my day a little better.</p>
-<p>Maybe right now I can’t give you the whole world.</p>
-<p>But I want to keep trying until one day I can truly make you happy with everything you want and need.</p>
-<p>I also want you to always feel safe whenever you’re with me.</p>
-<p>So… please stay by my side. ❤️</p>
+<p>Since we met, I’ve always enjoyed talking with you.</p>
+<p>For some reason, every message from you always brightens my day.</p>
+<p>I always love your voice, and I love listening to your stories.</p>
+<p>You are a very attractive woman to me, and you should know that you are incredibly strong.</p>
+<p>I want to be someone who can give you even more strength.</p>
+<p>Maybe I can’t give you the world right now,</p>
+<p>but I want to keep trying until one day I can make you truly happy.</p>
+<p>I want to be there for you and give you everything you need to become the best version of yourself.</p>
+<p>I also want to always make you feel safe when you’re with me.</p>
+<p>So… please stay by my side, okay? ❤️</p>
 
 <div class="buttons">
 
@@ -111,49 +115,27 @@ pointer-events:none;
 <script>
 
 /* tombol tidak kabur */
-
 function moveButton(){
-
 const btn=document.getElementById("no");
-
 const x=Math.random()*300;
-
 const y=Math.random()*80;
-
 btn.style.left=x+"px";
-
 btn.style.top=y+"px";
-
 }
 
 /* tombol mau */
-
 function yesClicked(){
-
 document.getElementById("result").classList.remove("hidden");
-
 }
 
 /* animasi hati jatuh */
-
 setInterval(function(){
-
 const heart=document.createElement("div");
-
 heart.className="heart";
-
 heart.innerHTML="❤️";
-
 heart.style.left=Math.random()*100+"vw";
-
 document.body.appendChild(heart);
-
-setTimeout(function(){
-
-heart.remove();
-
-},4000);
-
+setTimeout(function(){ heart.remove(); },4000);
 },500);
 
 </script>
