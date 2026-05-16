@@ -11,22 +11,24 @@ body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 color:white;
 overflow:hidden;
+padding:20px;
 }
 
 .card{
 background:rgba(0,0,0,0.25);
-padding:30px;
+padding:25px;
 border-radius:20px;
 max-width:550px;
 z-index:2;
 position:relative;
+backdrop-filter:blur(8px);
 }
 
 /* FOTO */
@@ -40,8 +42,8 @@ flex-wrap:wrap;
 }
 
 .photo{
-width:90px;
-height:90px;
+width:85px;
+height:85px;
 object-fit:cover;
 border-radius:15px;
 border:3px solid white;
@@ -50,27 +52,27 @@ border:3px solid white;
 /* TEXT */
 
 h1{
-font-size:22px;
-margin-bottom:15px;
+font-size:18px;
+margin-bottom:12px;
 }
 
 p{
-font-size:14px;
-margin:6px 0;
-line-height:1.5;
+font-size:11px;
+margin:5px 0;
+line-height:1.4;
 }
 
 /* BUTTON */
 
 .buttons{
-margin-top:25px;
+margin-top:20px;
 position:relative;
-height:100px;
+height:90px;
 }
 
 button{
-padding:10px 18px;
-font-size:14px;
+padding:8px 14px;
+font-size:12px;
 border:none;
 border-radius:10px;
 cursor:pointer;
@@ -93,7 +95,7 @@ display:none;
 
 #result{
 margin-top:15px;
-font-size:16px;
+font-size:14px;
 }
 
 /* HEART ANIMATION */
@@ -108,7 +110,7 @@ opacity:0;
 .heart{
 position:fixed;
 top:-20px;
-font-size:20px;
+font-size:18px;
 animation:fall 4s linear;
 pointer-events:none;
 }
@@ -120,100 +122,8 @@ pointer-events:none;
 
 <div class="card">
 
-<h1>Hai Diah Malaysiani Putri🌹🌹</h1>
-
 <div class="photos">
   <img src="IMG_20260517_022751.jpg" class="photo">
   <img src="IMG_20260517_022808.jpg" class="photo">
   <img src="IMG_20260517_022841.jpg" class="photo">
 </div>
-
-  <h1>Hai Diah Malaysiani Putri🌹🌹</h1>
-</p>Tonight i watched you sleep and it was so sweet</p>
-
-<p>And here’s a little story, since we met, I’ve always enjoyed talking with you.</p>
-
-<p>For some reason, every message from you always brightens my day.</p>
-
-<p>I always love your voice, and I love listening to your stories.</p>
-
-<p>You are a very attractive woman to me, and you should know that you are incredibly strong.</p>
-
-<p>I want to be someone who can give you even more strength.</p>
-
-<p>Maybe I can’t give you the world right now,</p>
-
-<p>but I want to keep trying until one day I can make you truly happy.</p>
-
-<p>I want to be there for you and give you everything you need to become the best version of yourself.</p>
-
-<p>I also want to always make you feel safe when you’re with me.</p>
-  
-</p> I pray you always win in your life, i wanna see you on top. 
-
-<p>So… please stay by my side, okay? ❤️</p>
-
-<div class="buttons">
-
-<button id="yes" onclick="yesClicked()">Mau</button>
-
-<button id="no" onmouseover="moveButton()">Tidak</button>
-
-</div>
-
-<p id="result" class="hidden">Yay! I’m so happy 😭❤️</p>
-
-</div>
-
-<script>
-
-/* tombol tidak kabur */
-
-function moveButton(){
-
-const btn=document.getElementById("no");
-
-const x=Math.random()*300;
-
-const y=Math.random()*80;
-
-btn.style.left=x+"px";
-
-btn.style.top=y+"px";
-
-}
-
-/* tombol mau */
-
-function yesClicked(){
-
-document.getElementById("result").classList.remove("hidden");
-
-}
-
-/* animasi hati jatuh */
-
-setInterval(function(){
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-document.body.appendChild(heart);
-
-setTimeout(function(){
-
-heart.remove();
-
-},4000);
-
-},500);
-
-</script>
-
-</body>
-</html>
