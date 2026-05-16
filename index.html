@@ -24,10 +24,30 @@ overflow:hidden;
 background:rgba(0,0,0,0.25);
 padding:30px;
 border-radius:20px;
-max-width:500px;
+max-width:550px;
 z-index:2;
 position:relative;
 }
+
+/* FOTO */
+
+.photos{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
+flex-wrap:wrap;
+}
+
+.photo{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:15px;
+border:3px solid white;
+}
+
+/* TEXT */
 
 h1{
 font-size:22px;
@@ -37,7 +57,10 @@ margin-bottom:15px;
 p{
 font-size:14px;
 margin:6px 0;
+line-height:1.5;
 }
+
+/* BUTTON */
 
 .buttons{
 margin-top:25px;
@@ -73,7 +96,7 @@ margin-top:15px;
 font-size:16px;
 }
 
-/* animasi hati */
+/* HEART ANIMATION */
 
 @keyframes fall{
 to{
@@ -90,21 +113,7 @@ animation:fall 4s linear;
 pointer-events:none;
 }
 
-</style>.photos{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-bottom:15px;
-flex-wrap:wrap;
-}
-
-.photo{
-width:90px;
-height:90px;
-object-fit:cover;
-border-radius:15px;
-border:3px solid white;
-}
+</style>
 </head>
 
 <body>
@@ -112,22 +121,33 @@ border:3px solid white;
 <div class="card">
 
 <h1>Hai Diah Malaysiani Putri🌹🌹</h1>
-  <div class="photos">
+
+<div class="photos">
   <img src="IMG_20260517_022751.jpg" class="photo">
   <img src="IMG_20260517_022808.jpg" class="photo">
   <img src="IMG_20260517_022841.jpg" class="photo">
-  </div>
+</div>
 
 <p>Since we met, I’ve always enjoyed talking with you.</p>
+
 <p>For some reason, every message from you always brightens my day.</p>
+
 <p>I always love your voice, and I love listening to your stories.</p>
+
 <p>You are a very attractive woman to me, and you should know that you are incredibly strong.</p>
+
 <p>I want to be someone who can give you even more strength.</p>
+
 <p>Maybe I can’t give you the world right now,</p>
+
 <p>but I want to keep trying until one day I can make you truly happy.</p>
+
 <p>I want to be there for you and give you everything you need to become the best version of yourself.</p>
+
 <p>I also want to always make you feel safe when you’re with me.</p>
-</p> I pray you always win in your life, i wanna see you on top. </p>
+  
+</p> I pray you always win in your life, i wanna see you on top. 
+
 <p>So… please stay by my side, okay? ❤️</p>
 
 <div class="buttons">
@@ -145,27 +165,49 @@ border:3px solid white;
 <script>
 
 /* tombol tidak kabur */
+
 function moveButton(){
+
 const btn=document.getElementById("no");
+
 const x=Math.random()*300;
+
 const y=Math.random()*80;
+
 btn.style.left=x+"px";
+
 btn.style.top=y+"px";
+
 }
 
 /* tombol mau */
+
 function yesClicked(){
+
 document.getElementById("result").classList.remove("hidden");
+
 }
 
 /* animasi hati jatuh */
+
 setInterval(function(){
+
 const heart=document.createElement("div");
+
 heart.className="heart";
+
 heart.innerHTML="❤️";
+
 heart.style.left=Math.random()*100+"vw";
+
 document.body.appendChild(heart);
-setTimeout(function(){ heart.remove(); },4000);
+
+setTimeout(function(){
+
+heart.remove();
+
+},4000);
+
 },500);
 
 </script>
